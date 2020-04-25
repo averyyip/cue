@@ -1,17 +1,21 @@
 const mongoose = require('mongoose');
 
 const User = new mongoose.Schema({
-  username: {
-    type: String,
-    required: [true, 'Username is required'],
-  },
+  uuid: String,
+  username: String,
 });
 
 const Store = new mongoose.Schema({
   id: String,
   name: String,
-  healthRating: Number,
-  waitLength: Number,
+  isLocalStore: Boolean,
+  healthRatings: [{
+    userUUID: String,
+    rating: Number,
+  }],
+  waitlist: [
+    { userUUID: String },
+  ],
   location: {
     lon: Number,
     lat: Number,
