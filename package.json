@@ -8,11 +8,16 @@
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+<<<<<<< HEAD
     "react-native-maps": "^0.27.1"
+=======
+    "expo": "^37.0.8"
+>>>>>>> 22d684df0307d139b414b6f0140666b74907a4d1
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0"
+    "eslint-plugin-react": "^7.19.0",
+    "prettier": "^2.0.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

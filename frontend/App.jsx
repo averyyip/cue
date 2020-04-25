@@ -4,6 +4,11 @@ import { Maps } from '@screens/Maps';
 import MapView, { Marker } from 'react-native-maps';
 import { Location, Permissions } from 'expo';
 import StoreMarker from '@components/StoreMarker';
+import * as Font from 'expo-font';
+import { setCustomText } from 'react-native-global-props';
+import { StyleSheet, View } from 'react-native';
+import { CarouselCard } from '@components/CarouselCard';
+import { Fonts } from './assets/fonts/Fonts';
 
 /**
   storeName: string,
@@ -42,6 +47,13 @@ export default class App extends React.Component {
     }
   }
 
+  async componentDidMount() {
+    await this.setDefaultFont();
+    this.setState({
+      isLoaded: true,
+    });
+  }
+
   changeCurrentStore() {
     this.state.store.focused = false;
     // store.focused = true;
@@ -65,6 +77,14 @@ export default class App extends React.Component {
 
   onRegionChangeComplete = region => {
     this.setState({ region });
+  };
+
+  setDefaultFont = async () => {
+    await Font.loadAsync(Fonts);
+    const customTextProps = {
+      style: { fontFamily: 'sf-pro-display-regular' },
+    };
+    setCustomText(customTextProps);
   };
 
 
@@ -116,10 +136,15 @@ export default class App extends React.Component {
             // ))
           }
         </MapView>
+        <View style={styles.container}>
+          {CarouselCard('berkeleybowl')}
+        </View>
       </View>
     )
-  }
-}
+  }}
+    
+
+
 
 const styles = StyleSheet.create({
   container: {
