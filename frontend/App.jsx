@@ -15,7 +15,7 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     await this.setDefaultFont();
-    this.setState({
+    await this.setState({
       isLoaded: true,
     });
   }
@@ -29,10 +29,16 @@ export default class App extends React.Component {
   };
 
   render() {
-    if (!this.state.isLoaded) {
+    const { isLoaded } = this.state;
+
+    if (!isLoaded) {
       return null;
     }
-    return <View style={styles.container}><Text>TEST SAMPLE</Text></View>;
+    return (
+      <View style={styles.container}>
+        <Text>SAMPLE</Text>
+      </View>
+    );
   }
 }
 
