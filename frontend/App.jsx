@@ -4,6 +4,7 @@ import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View } from 'react-native';
 import { CarouselCard } from '@components/CarouselCard';
 import { Fonts } from './assets/fonts/Fonts';
+import * as BottomButton from './components/BottomButton';
 
 export default class App extends React.Component {
   async componentDidMount() {
@@ -25,6 +26,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         {CarouselCard('berkeleybowl')}
+        {BottomButton.BottomButton({ text: "enter text here", theme: BottomButton.whitetheme })}
       </View>
     );
   }
