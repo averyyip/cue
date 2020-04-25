@@ -68,12 +68,3 @@ const CarouselView = styled.View`
   justify-content: center;
   width: 100%;
 `;
-
-const styles = StyleSheet.create({
-  yellow: {
-    backgroundColor: ${Colors.Yellow},
-  },
-  blue: {
-    backgroundColor: ${Colors.Blue},
-  },
-});
