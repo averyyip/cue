@@ -45,20 +45,20 @@ export default class Map extends React.Component {
     // store.focused = true;
 
     //animate to a new region of the map
-    // const region = {
-    //   latitude: store.latitude,
-    //   longitute: store.longitude,
-    //   ...deltas
-    // };
-    // this.setState({
-    //   store,
-    // }, async () => {
-    //   if (resetSheet) {
-    //     this.bottonSheetRef.snapTo(0);
-    //   }
-    //   await this._map.animateToRegion(region, 1000);
-    // }
-    // )
+    const region = {
+      latitude: store.latitude,
+      longitute: store.longitude,
+      ...deltas
+    };
+    this.setState({
+      store,
+    }, async () => {
+      if (resetSheet) {
+        this.bottonSheetRef.snapTo(0);
+      }
+      await this._mapView.animateToRegion(region, 1000);
+    }
+    )
   }
 
   onRegionChangeComplete = region => {
@@ -77,6 +77,7 @@ export default class Map extends React.Component {
           style={styles.container}
           provider="google"
           region={region}
+          ref = {()}
         >
           {
             // this.state.stores.map(store => (
@@ -103,7 +104,10 @@ export default class Map extends React.Component {
                   latitude: 37.311996988,
                   longitude: -122.0325472123455,
                 }}
-                onPress={() => this.changeCurrentStore()}>
+                onPress={() => _mapView.animateToCoordinate({
+                    latitude: 37.32,
+                    longitude: -122.0325472123455
+                }, 1000)}>
                 <StoreMarker
                   storeName='bye'
                   focused={this.state.store.focused}
