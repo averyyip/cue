@@ -3,7 +3,7 @@ const env = require('../env');
 
 const client = yelp.client(env.yelp_api_key);
 
-async function getClosestStores(lon, lat) {
+function getClosestStores(lon, lat) {
   const stores = [];
   const params = {
     term: 'grocery stores',
@@ -16,6 +16,7 @@ async function getClosestStores(lon, lat) {
     resp.jsonBody.businesses.forEach((yelpStoreInfo) => {
       const address = `${yelpStoreInfo.location.address1}, ${yelpStoreInfo.location.city}, ${yelpStoreInfo.location.state} ${yelpStoreInfo.location.zip_code}`;
       stores.push({
+        id: yelpStoreInfo.id,
         name: yelpStoreInfo.name,
         location: {
           ...yelpStoreInfo.coordinates,
