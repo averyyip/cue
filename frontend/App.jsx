@@ -30,9 +30,7 @@ export default class App extends React.Component {
       CarouselCard('wholefoods'),
     ];
     return (
-      <View style={styles.container}>
-        <CarouselApp carouselItems={items} />
-      </View>
+      <View style={styles.container} />
     );
   }
 }
