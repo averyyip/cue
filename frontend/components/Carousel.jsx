@@ -5,8 +5,9 @@ import {
   SafeAreaView,
   StyleSheet,
 } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import styled from 'styled-components/native';
+import { Colors } from '@assets/Colors';
 import { CarouselCard } from './CarouselCard';
 
 
@@ -15,10 +16,6 @@ export default class CarouselApp extends React.Component {
     super(props);
     this.state = {
       activeIndex: 0,
-      carouselItems: [
-        CarouselCard('smallbusiness'),
-        CarouselCard('berkeleybowl'),
-      ],
     };
   }
 
@@ -39,6 +36,31 @@ export default class CarouselApp extends React.Component {
     );
   }
 
+  get pagination() {
+    const { activeSlide } = this.state;
+    const numDots = 3;
+    return (
+      <Pagination
+        dotsLength={numDots}
+        activeDotIndex={activeSlide}
+        containerStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          marginHorizontal: 8,
+          backgroundColor: '#E76A42',
+        }}
+        inactiveDotStyle={{
+          // Define styles for inactive dots here
+          backgroundColor: '#606060',
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      />
+    );
+  }
+
   render() {
     return (
       <SafeAreaView style={{
@@ -49,12 +71,13 @@ export default class CarouselApp extends React.Component {
           <Carousel
             layout="default"
             ref={(ref) => this.carousel = ref}
-            data={this.state.carouselItems}
+            data={this.props.carouselItems}
             sliderWidth={360}
             itemWidth={360}
             renderItem={this._renderItem}
             onSnapToItem={(index) => this.setState({ activeIndex: index })}
           />
+          {/* { this.pagination } */}
         </CarouselView>
       </SafeAreaView>
     );

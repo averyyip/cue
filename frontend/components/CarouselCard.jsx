@@ -8,34 +8,39 @@ function getCardType(name) {
   const types = {
     smallbusiness: {
       color: Colors.Yellow,
+      text: Colors.Black,
       title: 'Support local businesses!',
       imageUri: require('@assets/images/small-business.png'),
       body: 'Shop at smaller grocery stores to support local businesses. Often, those stores have shorter wait times and plentiful inventory!',
     },
 
     distance: {
-      color: Colors.Yellow,
+      color: Colors.Purple,
+      text: Colors.White,
       title: 'Maintain a safe distance',
       imageUri: require('@assets/images/social-distance.png'),
       body: 'Stores can still be crowded during peak shopping times - make sure to follow in-store guidelines and remain 6 feet apart!',
     },
 
     neighbors: {
-      color: Colors.Yellow,
+      color: Colors.Purple,
+      text: Colors.White,
       title: 'Check in on your neighbors',
       imageUri: require('@assets/images/neighbors.png'),
       body: 'Shop at smaller grocery stores to support local businesses. Often, those stores have shorter wait times and plentiful inventory!',
     },
 
     shoppinglist: {
-      color: Colors.Yellow,
+      color: Colors.Purple,
+      text: Colors.White,
       title: 'Have a shopping list ready',
       imageUri: require('@assets/images/list.png'),
       body: 'You’ll thank yourself later - minimize your time in store and make a list ahead of time!',
     },
 
     mask: {
-      color: Colors.Yellow,
+      color: Colors.Purple,
+      text: Colors.White,
       title: 'Bring a face covering',
       imageUri: require('@assets/images/mask.png'),
       body: 'In many counties, face coverings are required in all essential businesses. Bring a mask or homemade face covering to protect yourself and others!',
@@ -43,9 +48,18 @@ function getCardType(name) {
 
     berkeleybowl: {
       color: Colors.Blue,
+      text: Colors.White,
       title: 'Weekly spotlight: Berkeley Bowl',
       imageUri: require('@assets/images/berkeley-bowl.png'),
       body: 'Berkeley Bowl has been serving local communities with a wide selection of fresh foods since 1977. Check out one of their two locations in Berkeley!',
+    },
+
+    wholefoods: {
+      color: Colors.Green,
+      text: Colors.White,
+      title: 'Weekly spotlight: Whole Foods',
+      imageUri: require('@assets/images/wholefoods.png'),
+      body: 'Whole Foods consistently sells healthy products that are free from hydrogenated fats and artificial colors, flavors, and preservatives!',
     },
   };
   return types[name];
@@ -54,11 +68,12 @@ function getCardType(name) {
 export function CarouselCard(cardName) {
   const cardDetails = getCardType(cardName);
   const cardColor = cardDetails.color;
+  const textColor = cardDetails.text;
 
   return (
     <Card style={{ backgroundColor: cardColor }}>
       <Container>
-        <TitleText>{cardDetails.title}</TitleText>
+        <TitleText style={{ color: textColor }}>{cardDetails.title}</TitleText>
         <Image
           style={{
             width: 75,
@@ -67,7 +82,7 @@ export function CarouselCard(cardName) {
           }}
           source={cardDetails.imageUri}
         />
-        <BodyText>{cardDetails.body}</BodyText>
+        <BodyText style={{ color: textColor }}>{cardDetails.body}</BodyText>
       </Container>
     </Card>
   );

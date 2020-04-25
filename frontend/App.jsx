@@ -24,9 +24,14 @@ export default class App extends React.Component {
   };
 
   render() {
+    const items = [
+      CarouselCard('smallbusiness'),
+      CarouselCard('berkeleybowl'),
+      CarouselCard('wholefoods'),
+    ];
     return (
       <View style={styles.container}>
-        <CarouselApp />
+        <CarouselApp carouselItems={items} />
       </View>
     );
   }
