@@ -1,12 +1,18 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
-import { StyleSheet, View } from 'react-native';
-import { CarouselCard } from '@components/CarouselCard';
+import { StyleSheet, View, Text } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
-import * as BottomButton from './components/BottomButton';
+
 
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoaded: false,
+    };
+  }
+
   async componentDidMount() {
     await this.setDefaultFont();
     this.setState({
@@ -23,12 +29,10 @@ export default class App extends React.Component {
   };
 
   render() {
-    return (
-      <View style={styles.container}>
-        {CarouselCard('berkeleybowl')}
-        {BottomButton.BottomButton({ text: "enter text here", theme: BottomButton.whitetheme })}
-      </View>
-    );
+    if (!this.state.isLoaded) {
+      return null;
+    }
+    return <View style={styles.container}><Text>TEST SAMPLE</Text></View>;
   }
 }
 
