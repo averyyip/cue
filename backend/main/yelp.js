@@ -3,7 +3,7 @@ const env = require('../env');
 
 const client = yelp.client(env.yelp_api_key);
 
-function getClosestStores(lon, lat) {
+async function getClosestStores(lon, lat) {
   const stores = [];
   const params = {
     term: 'grocery stores',
@@ -15,9 +15,12 @@ function getClosestStores(lon, lat) {
     const resp = await client.search(params);
     resp.jsonBody.businesses.forEach((yelpStoreInfo) => {
       const address = `${yelpStoreInfo.location.address1}, ${yelpStoreInfo.location.city}, ${yelpStoreInfo.location.state} ${yelpStoreInfo.location.zip_code}`;
+      const regex = RegExp('(safeway|walmart|trader|costco|albertson|whole foods|target|lucky)');
+      const isLocalStore = !regex.test(yelpStoreInfo.name.toLowerCase());
       stores.push({
         id: yelpStoreInfo.id,
         name: yelpStoreInfo.name,
+        isLocalStore,
         location: {
           ...yelpStoreInfo.coordinates,
           address,
