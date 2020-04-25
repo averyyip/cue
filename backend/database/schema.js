@@ -1,14 +1,25 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const User = new mongoose.Schema({
   username: {
     type: String,
     required: [true, 'Username is required'],
   },
-  created: {
-    type: Date,
-    required: [true, 'Created date is required'],
+});
+
+const Store = new mongoose.Schema({
+  id: String,
+  name: String,
+  healthRating: Number,
+  waitLength: Number,
+  location: {
+    lon: Number,
+    lat: Number,
+    address: String,
   },
 });
 
-module.exports = userSchema;
+module.exports = {
+  User,
+  Store,
+};
