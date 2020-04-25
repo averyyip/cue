@@ -1,13 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { text } from '@screens/Maps';
+import * as Font from 'expo-font';
+import { setCustomText } from 'react-native-global-props';
+import { StyleSheet, View, Text } from 'react-native';
+import { Fonts } from './assets/fonts/Fonts';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>{text}</Text>
-    </View>
-  );
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoaded: false,
+    };
+  }
+
+  async componentDidMount() {
+    await this.setDefaultFont();
+    this.setState({
+      isLoaded: true,
+    });
+  }
+
+  setDefaultFont = async () => {
+    await Font.loadAsync(Fonts);
+    const customTextProps = {
+      style: { fontFamily: 'sf-pro-display-regular' },
+    };
+    setCustomText(customTextProps);
+  };
+
+  render() {
+    if (!this.state.isLoaded) {
+      return null;
+    }
+    return <View style={styles.container}><Text>TEST SAMPLE</Text></View>;
+  }
 }
 
 const styles = StyleSheet.create({
