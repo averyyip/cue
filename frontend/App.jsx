@@ -4,6 +4,7 @@ import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View } from 'react-native';
 import { CarouselCard } from '@components/CarouselCard';
 import { Fonts } from './assets/fonts/Fonts';
+import Map from '@components/Map';
 
 export default class App extends React.Component {
   async componentDidMount() {
@@ -24,6 +25,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        {<Map/>}
         {CarouselCard('berkeleybowl')}
       </View>
     );
@@ -33,8 +35,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
