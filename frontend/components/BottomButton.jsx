@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, ThemeProvider } from 'react-native-elements';
 
-export function BottomButton({ text, theme, onPress }) {
+function BottomButton({ text, theme, onPress }) {
     return (
         <View style={{ width: '85%' }}>
             <ThemeProvider theme={theme}>
@@ -54,4 +54,4 @@ const graytheme = {
 }
 
 
-export default BottomButton
+module.exports = { graytheme, whitetheme, bluetheme, BottomButton }
