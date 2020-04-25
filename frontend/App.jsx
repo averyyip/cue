@@ -3,7 +3,9 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View } from 'react-native';
 import { CarouselCard } from '@components/CarouselCard';
+import { Carousel } from '@components/Carousel';
 import { Fonts } from './assets/fonts/Fonts';
+import CarouselApp from './components/Carousel';
 
 export default class App extends React.Component {
   async componentDidMount() {
@@ -24,7 +26,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {CarouselCard('berkeleybowl')}
+        <CarouselApp />
       </View>
     );
   }
