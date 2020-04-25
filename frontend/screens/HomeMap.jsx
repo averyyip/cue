@@ -2,11 +2,13 @@ import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View, Text } from 'react-native';
-import { Fonts } from './assets/fonts/Fonts';
-import HomeMap from '@screens/HomeMap';
+import { Fonts } from '../assets/fonts/Fonts';
+import CarouselApp from '@components/Carousel';
+import { CarouselCard } from '@components/CarouselCard'
+import Map from '@components/Map'
 
 
-export default class App extends React.Component {
+export default class HomeMap extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -31,13 +33,21 @@ export default class App extends React.Component {
 
   render() {
     const { isLoaded } = this.state;
+    const items = [
+        CarouselCard('smallbusiness'),
+        CarouselCard('berkeleybowl'),
+        CarouselCard('wholefoods'),
+    ]
 
     if (!isLoaded) {
       return null;
     }
     return (
       <View style={styles.container}>
-        <HomeMap/>
+        <Map/>
+        {/* {<CarouselApp
+            carouselItems={items}
+        />} */}
       </View>
     );
   }
