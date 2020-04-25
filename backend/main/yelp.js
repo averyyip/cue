@@ -3,7 +3,8 @@ const env = require('../env');
 
 const client = yelp.client(env.yelp_api_key);
 
-async function getClosestStore(lon, lat) {
+async function getClosestStores(lon, lat) {
+  const stores = [];
   const params = {
     term: 'grocery stores',
     longitude: lon,
@@ -11,10 +12,23 @@ async function getClosestStore(lon, lat) {
   };
 
   try {
-    const res = await client.search(params);
-    console.log(res);
+    const resp = await client.search(params);
+    resp.jsonBody.businesses.forEach((yelpStoreInfo) => {
+      const address = `${yelpStoreInfo.location.address1}, ${yelpStoreInfo.location.city}, ${yelpStoreInfo.location.state} ${yelpStoreInfo.location.zip_code}`;
+      stores.push({
+        name: yelpStoreInfo.name,
+        location: {
+          ...yelpStoreInfo.coordinates,
+          address,
+        },
+      });
+    });
+    return stores;
   } catch (e) {
     console.log(e);
   }
 }
-getClosestStore(-122.2540443, 37.870456);
+
+module.exports = {
+  getClosestStores,
+};
