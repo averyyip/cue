@@ -35,7 +35,28 @@ const deltas = {
   longitudeDelta: 0.0421
 }
 
-async function getClosestStores() {
+
+
+export default class Map extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: null,
+      region: {region},
+      stores: null,
+      store: {
+        focused:false,
+      },
+    }
+  }
+
+  async componentDidMount() {
+      this.setState ({
+        stores: await this.getClosestStores()
+      })
+  }
+
+  async getClosestStores() {
     try {
       const response = await axios.get('https://hacknow-bp.uc.r.appspot.com/closestStores', {
           params: {
@@ -44,24 +65,10 @@ async function getClosestStores() {
           }
       });
       console.log(response);
-      return response;
+      return response.body;
     } catch (error) {
       console.error(error);
-    }
-}
-
-export default class Map extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      location: null,
-      region: {region},
-      stores: getClosestStores(),
-      store: {
-        focused:false,
-      },
-    }
-  }
+    }}
 
   changeCurrentStore(store) {
     this.state.store.focused = false;
@@ -73,7 +80,7 @@ export default class Map extends React.Component {
       longitute: store.location.lon,
       ...deltas
         };
-        this.setState({
+    this.setState({
         store,
         }, async () => {
         await this._mapView.animateToRegion(region, 1000);
