@@ -3,6 +3,7 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { Fonts } from './assets/fonts/Fonts';
 import { AppContainer } from './components/Navigation';
+import WaitlistCard from './components/WaitlistCard';
 
 export default class App extends React.Component {
   constructor() {

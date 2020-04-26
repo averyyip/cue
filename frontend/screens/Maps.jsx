@@ -5,6 +5,8 @@ import StoreMarker from '@components/StoreMarker';
 import axios from 'axios';
 import BottomCardContainer from '@components/BottomCardContainer';
 import { getLocation } from '@utils/location';
+import WaitlistCard from '@components/WaitlistCard';
+
 /**
 const Store = new mongoose.Schema({
   id: String,
@@ -48,7 +50,11 @@ export default class Map extends React.Component {
       store: {
         focused: false,
       },
+      waitlisted: false,
+      userRecord: {},
+      storeRecord: {},
     };
+    this.setWaitlisted = this.setWaitlisted.bind(this);
   }
 
   async componentWillMount() {
@@ -60,6 +66,14 @@ export default class Map extends React.Component {
         longitudeDelta: region.longitudeDelta,
       },
       stores: await this.getClosestStores(regionLatLon.longitude, regionLatLon.latitude),
+    });
+  }
+
+  async setWaitlisted(status, storeRecord, userRecord) {
+    await this.setState({
+      waitlisted: status,
+      storeRecord,
+      userRecord,
     });
   }
 
@@ -136,10 +150,16 @@ export default class Map extends React.Component {
             ))
           }
         </MapView>
-        <BottomCardContainer
-          style={bottomStyles.container}
-          storeRecord={(this.state.focusStore != null) ? this.state.focusStore : 'carousel'}
-        />
+        {/* <WaitlistCard /> */}
+        {(this.state.waitlisted)
+          ? <WaitlistCard navigation={this.props.navigation} userRecord={this.state.userRecord} storeRecord={this.state.storeRecord} />
+          : (
+            <BottomCardContainer
+              style={bottomStyles.container}
+              storeRecord={(this.state.focusStore != null) ? this.state.focusStore : 'carousel'}
+              waitlistSetter={this.setWaitlisted}
+            />
+          )}
       </View>
     );
   }
