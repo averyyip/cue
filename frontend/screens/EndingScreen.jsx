@@ -97,25 +97,25 @@ const FullScreen = styled(BaseComponents.BaseScreen)`
 `;
 
 const ButtonView = styled.View`
-margin-left: auto;
-margin-right: auto;
-display: flex;
-flex-direction: row;
-justify-content: center;
-width: 100%;
-margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
 `;
 
 
 const Block = styled.View`
-width: 90%;
-height: 250;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-left: auto;
-margin-right: auto;
+  width: 90%;
+  height: 250;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const StarBox = styled.View`
