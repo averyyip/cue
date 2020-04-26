@@ -81,4 +81,11 @@ export const WaitCardButtonPosition = styled.View`
 export const WaitCardImage = styled.Image`
   margin-top: 15px;
   margin-left: -21px;
+  margin-top: 130px;
+`;
+
+// full width and height
+export const BaseScreen = styled.View`
+  width: 100%;
+  height: 100%;
 `;
