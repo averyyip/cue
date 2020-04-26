@@ -37,9 +37,7 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      <View style={styles.container}>
-        {LeaveWaitlistCard("Costco Wholesale")}
-      </View>
+      <View />
     );
   }
 }
