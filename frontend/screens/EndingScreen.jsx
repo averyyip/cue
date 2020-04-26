@@ -19,6 +19,7 @@ const screenTypes = {
 
 export function EndingScreen(screenName) {
   const screenContent = screenTypes[screenName];
+  let stars = 0;
   const ratingBlock = (
     <Block>
       <BlockText>
@@ -32,12 +33,13 @@ export function EndingScreen(screenName) {
           <Stars
             half
             default={0}
-            update={(val) => { this.setState({ stars: val }); }}
+            update={(val) => { stars = val; }}
             spacing={15}
             starSize={40}
             count={5}
             fullStar={require('@assets/images/ratingStar.png')}
             emptyStar={require('@assets/images/starOutline.png')}
+            halfStar={require('@assets/images/starHalf.png')}
           />
         </View>
       </StarBox>
