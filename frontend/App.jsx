@@ -1,10 +1,8 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
-import { StyleSheet, View } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
-import { EndingScreen } from './screens/EndingScreen';
-
+import { AppContainer } from './components/Navigation';
 
 export default class App extends React.Component {
   constructor() {
@@ -36,18 +34,7 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      <View style={styles.container}>
-        {EndingScreen('ratingScreen')}
-      </View>
+      <AppContainer />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

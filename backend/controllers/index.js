@@ -1,9 +1,9 @@
 const testController = require('./test');
-const yelpController = require('./yelp');
+const storesController = require('./stores');
 const loginController = require('./login');
 
 module.exports = {
   testController,
-  yelpController,
+  storesController,
   loginController,
 };
