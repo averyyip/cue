@@ -3,9 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import StoreMarker from '@components/StoreMarker';
 import axios from 'axios';
-import StoreInfo from '@components/StoreInfo';
-import BottomCardContainer from './BottomCardContainer';
-import * as BottomButton from '@components/BottomButton';
+import BottomCardContainer from '@components/BottomCardContainer';
 /**
 const Store = new mongoose.Schema({
   id: String,

@@ -41,7 +41,7 @@ export default function StoreInfo(storeRecord) {
         {(storeRecord.healthRatings.length == 0) ? norating : null}
       </RatingContainer>
       <WaitTimeContainer>
-        <WaitTime>10 minutes</WaitTime>
+        <WaitTime>{storeRecord.waitlist.length.toString()} waiting </WaitTime>
       </WaitTimeContainer>
     </Container>
   );

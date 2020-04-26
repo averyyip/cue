@@ -3,8 +3,7 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
-import Map from '@components/Map';
-
+import Map from '@screens/Map';
 
 export default class App extends React.Component {
   constructor() {
