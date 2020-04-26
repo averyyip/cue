@@ -10,9 +10,14 @@ function Separator() {
     return <View style={styles.separator} />;
 }
 
-export function ClosertoStoreCard(store) {
+export function ClosertoStoreCard({ store, distance }) {
     return (
         <BaseComponents.WaitBottomCard>
+            <OrangeBox>
+                <OrangeBoxText>
+                    You're currently {distance} miles away from the store.
+                </OrangeBoxText>
+            </OrangeBox>
             <BaseComponents.WaitCardStoreTitle>{store}</BaseComponents.WaitCardStoreTitle>
             <View style={{ flexDirection: 'row' }}>
                 <BaseComponents.WaitCardText>Once you are closer to the store, you will be able to check-in!</BaseComponents.WaitCardText>
@@ -66,3 +71,26 @@ const styles = StyleSheet.create({
         width: 112
     },
 });
+
+export const OrangeBox = styled.View`
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  width: 97%;
+  border-radius: 3px;
+  height: 20%;
+  background-color: #E76A42;
+  margin-top: -17%;
+  z-index: 1;
+`;
+
+export const OrangeBoxText = styled.Text`
+  display: flex;
+  align-self: center;
+  color: white;
+  font-size: 14px;
+  width: 88%;
+  z-index: 0;
+  margin-top: 5.3%
+  font-weight: bold;
+`;

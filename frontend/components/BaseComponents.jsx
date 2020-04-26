@@ -50,7 +50,7 @@ export const WaitBottomCard = styled.View`
   position: absolute;
   bottom:0;
   left:0;
-  background-color: white;
+  background-color: red;
 `;
 
 export const WaitCardStoreTitle = styled(TinyHeader)`
@@ -81,7 +81,6 @@ export const WaitCardButtonPosition = styled.View`
 export const WaitCardImage = styled.Image`
   margin-top: 15px;
   margin-left: -21px;
-  margin-top: 130px;
 `;
 
 // full width and height
