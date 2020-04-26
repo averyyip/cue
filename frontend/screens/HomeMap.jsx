@@ -17,19 +17,10 @@ export default class HomeMap extends React.Component {
   }
 
   async componentDidMount() {
-    await this.setDefaultFont();
     await this.setState({
       isLoaded: true,
     });
   }
-
-  setDefaultFont = async () => {
-    await Font.loadAsync(Fonts);
-    const customTextProps = {
-      style: { fontFamily: 'sf-pro-display-regular' },
-    };
-    setCustomText(customTextProps);
-  };
 
   render() {
     const { isLoaded } = this.state;
@@ -61,3 +52,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const map = StyleSheet.create({
+    container: {
+      height: '50%'
+    },
+  });
+
+const carousel = StyleSheet.create({
+    container: {
+      height: '25%'
+    },
+  });

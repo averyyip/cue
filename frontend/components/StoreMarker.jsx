@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import styled from 'styled-components/native';
-
+import { Colors } from '../assets/Colors';
 
 function StoreMarker({ storeName, focused }) {
   return (
@@ -17,7 +17,9 @@ function StoreMarker({ storeName, focused }) {
           source={require('../assets/images/unfocus.png')}
         />
       )}
-      <MarkerStoreName focused={focused}>{storeName}</MarkerStoreName>
+      <MarkerStoreContainer>
+        <MarkerStoreName focused={focused}>{storeName}</MarkerStoreName>
+      </MarkerStoreContainer>
     </MarkerContainer>
   );
 }
@@ -25,13 +27,24 @@ function StoreMarker({ storeName, focused }) {
 export default StoreMarker;
 
 export const MarkerContainer = styled.View`
-  width: 150px
+  width: 200px
   display: flex
   align-items: center
 `;
 
+export const MarkerStoreContainer = styled.View`
+  background-color: ${props => (props.focused ? Colors.Yellow : Colors.Yellow)};
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 5px;
+;`
+
 export const MarkerStoreName = styled.Text`
-  font-size: ${props => (props.focused ? '16px' : '14px')};
+  font-size: ${props => (props.focused ? '12px' : '12px')};
   line-height: ${props => (props.focused ? '24px' : '20px')};
-  text-align: center
+  text-align: center;
+  color: ${Colors.White};
+
 `;

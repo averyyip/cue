@@ -3,8 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import StoreMarker from '@components/StoreMarker';
 import axios from 'axios';
-// import Main from './backend/controllers/index';
-
+import StoreInfo from '@components/StoreInfo';
+import BottomCardContainer from './BottomCardContainer';
+import * as BottomButton from '@components/BottomButton';
 /**
 const Store = new mongoose.Schema({
   id: String,
@@ -18,8 +19,8 @@ const Store = new mongoose.Schema({
     { userUUID: String },
   ],
   location: {
-    lon: Number,
-    lat: Number,
+    longitude: Number,
+    latitude: Number,
     address: String,
   },
 });
@@ -38,7 +39,6 @@ const deltas = {
 }
 
 
-
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -50,46 +50,15 @@ export default class Map extends React.Component {
         focused:false,
       },
     }
-    console.log("bleeeeeeehehh")
-    console.log(this.state)
   }
 
     async componentWillMount() {
     //   this.setState ({
     //     stores: await this.getClosestStores()
     //   })
-    await this.setState({stores: this.getClosestStores(-122.0325472123455, 37.321996988)
-            // [{id: 1,
-            //     name: "store1",
-            //     isLocalStore: true,
-            //     healthRatings: [{
-            //         userUUID: 1,
-            //         rating: 2,
-            //     }],
-            //     waitlist: [
-            //     { userUUID: 1 },
-            //     ],
-            //     location: {
-            //     lat: 37.321996988,
-            //     lon: -122.0325472123455,
-            //     address: "123 he", }
-            // }, {id: 1,
-            //     name: "store",
-            //     isLocalStore: true,
-            //     healthRatings: [{
-            //         userUUID: 1,
-            //         rating: 2,
-            //     }],
-            //     waitlist: [
-            //     { userUUID: 1 },
-            //     ],
-            //     location: {
-            //     lat: 37.421996988,
-            //     lon: -122.0325472123455,
-            //     address: "123 he", }
-            // }]}
-        })
-
+        this.setState({
+            stores: await this.getClosestStores(-122.0325472123455, 37.321996988)
+            })
     }
 
   async getClosestStores(longitude, latitude) {
@@ -110,17 +79,20 @@ export default class Map extends React.Component {
     this.state.store.focused = false;
     store.focused = true;
 
+    this.setState({
+        focusStore: store
+    })
     //animate to a new region of the map
     const region = {
-      latitude: store.location.lat,
-      longitute: store.location.lon,
+      latitude: store.location.latitude,
+      longitute: store.location.longitude,
       ...deltas
         };
-    this.setState({
-        store,
-        }, async () => {
-        await this._mapView.animateToRegion(region, 1000);
-        })
+    // this.setState(
+    //     {store,}, async () => {
+    //     await this._map.animateToRegion(region, 1000);
+    //     }
+    // )
     }
 
   onRegionChangeComplete = region => {
@@ -146,27 +118,39 @@ export default class Map extends React.Component {
           {
             this.state.stores.map(store => (
               <Marker
-                key='hello'
+                key={store.id}
                 coordinate={{
                   latitude: store.location.latitude,
                   longitude: store.location.longitude,
                 }}
-                onPress={() => this.changeCurrentStore(store)}>
+                onPress={() => this.changeCurrentStore(store)}
+                >
                 <StoreMarker
                    storeName={store.name}
-                  focused={!this.state.store.focused}
-                   type={this.state.stores[0].isLocal}
+                  focused={store.isLocalStore}
+                   type={this.state.isLocalStore}
                 />
               </Marker>
             ))
           }
         </MapView>
+        <BottomCardContainer style={bottomStyles.container}
+            storeRecord={(this.state.focusStore != null) ?  this.state.focusStore : "carousel"}>
+        </BottomCardContainer>
       </View>
     )
   }}
     
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
+    // width: '100%'
   },
 });
+
+const bottomStyles = StyleSheet.create({
+    container: {
+      flex: 1,
+      // width: '100%'
+    },
+  });

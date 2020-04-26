@@ -17,9 +17,10 @@ export default function StoreInfo(storeRecord) {
   return (
     <Container>
       <BoldHeader>{storeRecord.name}</BoldHeader>
-      <AddressText>{storeRecord.address}</AddressText>
+      <AddressText>{storeRecord.location.address}</AddressText>
       <RatingContainer>
         <Stars
+          disabled={true}
           display={storeRecord.rating}
           spacing={8}
           count={5}
@@ -37,8 +38,11 @@ export default function StoreInfo(storeRecord) {
           }}
           source={require('../assets/images/heatlh-rating.png')}
         />
-        {(storeRecord.rating == 0) ? norating : null}
+        {(storeRecord.healthRatings.length == 0) ? norating : null}
       </RatingContainer>
+      <WaitTimeContainer>
+        <WaitTime>10 minutes</WaitTime>
+      </WaitTimeContainer>
     </Container>
   );
 }
@@ -48,12 +52,21 @@ const Container = styled.View`
   flex-direction: column;
   height: 75px;
   width: 340px;
-  margin-left: auto;
+  margin-left: 30px;
   margin-right: auto;
+  padding-top: 30px;
 `;
+
 
 const BoldHeader = styled(BaseComponents.LargeHeader)`
   text-align:left;
+`;
+
+const WaitTime = styled(BaseComponents.Time)`
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: left;
+  color: ${Colors.White};
 `;
 
 const AddressText = styled(BaseComponents.AddressText)`
@@ -67,4 +80,15 @@ const RatingContainer = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 10px;
+  margin-bottom: 20px;
+`;
+
+const WaitTimeContainer = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: ${Colors.Green};
+  border-radius: 112px;
+  width: 50%
 `;
