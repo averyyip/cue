@@ -8,6 +8,10 @@ export const TextRegular = styled.Text`
 
 // store names, bold informational text
 export const LargeHeader = styled(TextBold)`
+  font-size: 24px;
+`;
+
+export const Time = styled(TextBold)`
   font-size: 20px;
 `;
 
@@ -36,6 +40,7 @@ export const AddressText = styled(TextRegular)`
   font-size: 14px;
 `;
 
+<<<<<<< HEAD
 export const WaitBottomCard = styled.View`
   display: flex;
   justify-content: flex-start;
@@ -66,15 +71,26 @@ export const WaitCardText = styled(BodyText)`
   width: 50%;
 `;
 
+=======
+>>>>>>> ec6e15cf185cc8fc98253abb07dd19a7af0a832d
 export const WaitCardButtonPosition = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+<<<<<<< HEAD
   margin-top: 20px;
 `;
 
 export const WaitCardImage = styled.Image`
   margin-top: 15px;
   margin-left: -21px;
+=======
+  margin-top: 130px;
+`;
+// full width and height
+export const BaseScreen = styled.View`
+  width: 100%;
+  height: 100%;
+>>>>>>> ec6e15cf185cc8fc98253abb07dd19a7af0a832d
 `;
