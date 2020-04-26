@@ -28,6 +28,13 @@ async function joinWaitlist(req, res) {
   res.json(ok);
 }
 
+async function leaveWaitlist(req, res) {
+  const { storeID, userUUID } = req.query;
+  const ok = await main.stores.leaveWaitlist(storeID, userUUID);
+  res.json(ok);
+}
+
+
 async function rateStore(req, res) {
   const { storeID, userUUID, rating } = req.query;
   const ok = await main.stores.rateStore(storeID, userUUID, rating);
@@ -37,5 +44,6 @@ async function rateStore(req, res) {
 module.exports = {
   closestStores,
   joinWaitlist,
+  leaveWaitlist,
   rateStore,
 };

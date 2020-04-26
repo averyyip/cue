@@ -38,6 +38,10 @@ async function joinWaitlist(storeID, userUUID) {
   return db.joinWaitlist(storeID, userUUID);
 }
 
+async function leaveWaitlist(storeID, userUUID) {
+  return db.leaveWaitlist(storeID, userUUID);
+}
+
 async function rateStore(storeID, userUUID, rating) {
   return db.rateStore(storeID, userUUID, rating);
 }
@@ -45,5 +49,6 @@ async function rateStore(storeID, userUUID, rating) {
 module.exports = {
   getClosestStores,
   joinWaitlist,
+  leaveWaitlist,
   rateStore,
 };
