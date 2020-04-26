@@ -15,7 +15,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    await this.setDefaultFont();
+    // await this.setDefaultFont();
     await this.setState({
       isLoaded: true,
     });
@@ -26,7 +26,7 @@ export default class App extends React.Component {
     const customTextProps = {
       style: { fontFamily: 'sf-pro-display-regular' },
     };
-    setCustomText(customTextProps);
+    await setCustomText(customTextProps);
   };
 
   render() {
@@ -41,7 +41,7 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      <View style={styles.container}>
+      <View>
         {StoreInfo(storeRecord)}
       </View>
     );

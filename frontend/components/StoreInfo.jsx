@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image } from 'react-native';
 import styled from 'styled-components/native';
 import Stars from 'react-native-stars';
 import { Colors } from '../assets/Colors';
@@ -11,13 +11,11 @@ export default function StoreInfo(storeRecord) {
       No Rating
     </BaseComponents.BodyText>
   );
-
-  console.log(storeRecord);
   return (
-    <View>
+    <Container>
       <BoldHeader>{storeRecord.name}</BoldHeader>
       <AddressText>{storeRecord.address}</AddressText>
-      {/* <RatingContainer>
+      <RatingContainer>
         <Stars
           display={storeRecord.rating}
           spacing={8}
@@ -26,18 +24,18 @@ export default function StoreInfo(storeRecord) {
           fullStar={require('@assets/images/starFilled.png')}
           emptyStar={require('@assets/images/starEmpty.png')}
           halfStar={require('@assets/images/starHalf.png')}
-        /> */}
-      <Image
-        style={{
-          width: 10,
-          height: 10,
-          resizeMode: 'contain',
-        }}
-        source={require('../assets/images/heatlh-rating.png')}
-      />
-      {/* {(storeRecord.rating == 0) ? norating : null}
-      </RatingContainer> */}
-    </View>
+        />
+        <Image
+          style={{
+            width: 10,
+            height: 10,
+            resizeMode: 'contain',
+          }}
+          source={require('../assets/images/heatlh-rating.png')}
+        />
+        {(storeRecord.rating == 0) ? norating : null}
+      </RatingContainer>
+    </Container>
   );
 }
 
@@ -55,7 +53,7 @@ const BoldHeader = styled(BaseComponents.LargeHeader)`
 
 const AddressText = styled(BaseComponents.AddressText)`
   text-align:left;
-  color: ${Colors.TextGray};
+  color: ${Colors.textGray};
 `;
 
 const RatingContainer = styled.View`
