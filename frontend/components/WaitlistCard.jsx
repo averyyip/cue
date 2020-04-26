@@ -3,63 +3,72 @@ import { CarouselCard } from '@components/CarouselCard';
 import CarouselApp from '@components/Carousel';
 import StoreInfo from '@components/StoreInfo';
 import {
-  StyleSheet, Text, View, Image,
+  StyleSheet, Text, View, Image, TouchableOpacity,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import * as BottomButton from '@components/BottomButton';
 import * as BaseComponents from '@components/BaseComponents';
 import styled from 'styled-components/native';
 
-// tweak variables for demo
-const lessthanfifteen = true;
-const withinradius = true;
-
 export default class WaitlistCard extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      option: 0,
+    };
+  }
+
+  async nextCard() {
+    this.setState({
+      option: this.state.option + 1,
+    });
   }
 
   render() {
     let content;
-    if (!lessthanfifteen) {
+    if (this.state.option === 0) {
       content = (
         <Card>
           <CheckInView>
             <LeftText style={{ width: 200 }}>
               You will be notified 15 minutes before your time slot
             </LeftText>
-            <Image
-              style={{
-                width: 100,
-                height: 100,
-                resizeMode: 'contain',
-              }}
-              source={require('../assets/images/time.png')}
-            />
+            <TouchableOpacity onPress={async () => await this.nextCard()} activeOpacity={1}>
+              <Image
+                style={{
+                  width: 100,
+                  height: 100,
+                  resizeMode: 'contain',
+                }}
+                source={require('../assets/images/time.png')}
+              />
+            </TouchableOpacity>
           </CheckInView>
           <ButtonPosition>
-            {BottomButton.BottomButton({ text: 'JOIN THE WAITLIST', theme: BottomButton.bluetheme })}
+            {BottomButton.BottomButton({ text: 'Join the waitlist', theme: BottomButton.bluetheme, onPress: async () => await this.nextCard() })}
           </ButtonPosition>
         </Card>
       );
-    } else if (lessthanfifteen && !withinradius) {
+    } else if (this.state.option === 1) {
       content = (
         <Card>
           <CheckInView>
             <LeftText style={{ width: 200 }}>
               Once you are closer to the store, you will be able to check-in!
             </LeftText>
-            <Image
-              style={{
-                width: 100,
-                height: 100,
-                resizeMode: 'contain',
-              }}
-              source={require('../assets/images/destination.png')}
-            />
+            <TouchableOpacity onPress={async () => await this.nextCard()} activeOpacity={1}>
+              <Image
+                style={{
+                  width: 100,
+                  height: 100,
+                  resizeMode: 'contain',
+                }}
+                source={require('../assets/images/destination.png')}
+              />
+            </TouchableOpacity>
           </CheckInView>
           <ButtonPosition>
-            {BottomButton.BottomButton({ text: 'CHECK-IN', theme: BottomButton.graytheme })}
+            {BottomButton.BottomButton({ text: 'Check In', theme: BottomButton.graytheme, onPress: async () => await this.nextCard() })}
             <Button
               title="Leave the waitlist"
               titleStyle={{
@@ -69,6 +78,7 @@ export default class WaitlistCard extends React.Component {
               buttonStyle={{
                 backgroundColor: 'transparent',
               }}
+              onPress={() => this.props.navigation.navigate('Map')}
             />
           </ButtonPosition>
         </Card>
@@ -90,7 +100,11 @@ export default class WaitlistCard extends React.Component {
             />
           </CheckInView>
           <ButtonPosition>
-            {BottomButton.BottomButton({ text: 'CHECK-IN', theme: BottomButton.bluetheme })}
+            {BottomButton.BottomButton({
+              text: 'Check In',
+              theme: BottomButton.bluetheme,
+              onPress: () => this.props.navigation.push('Countdown', { userRecord: this.props.userRecord, storeRecord: this.props.storeRecord }),
+            })}
             <Button
               title="Leave the waitlist"
               titleStyle={{

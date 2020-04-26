@@ -9,6 +9,7 @@ import { Timer } from '../components/Timer';
 
 export class Countdown extends React.Component {
   render() {
+    const { storeRecord, userRecord } = this.props.route.params;
     return (
       <Background>
         <TimerBox>
@@ -17,7 +18,7 @@ export class Countdown extends React.Component {
           </TimerText>
           <Timer />
         </TimerBox>
-        <LongBottomCardContainer storeRecord="carousel" />
+        <LongBottomCardContainer storeRecord={storeRecord} />
       </Background>
     );
   }

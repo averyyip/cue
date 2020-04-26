@@ -23,23 +23,14 @@ export default class BottomCard extends React.Component {
 
     let content;
     if (this.props.storeRecord == 'carousel') {
-      content = <CarouselApp carouselItems={items} />;
+      content = null;
     } else {
-      content = (
-        <>
-          {StoreInfo(this.props.storeRecord)}
-          <BaseComponents.WaitCardButtonPosition>
-            {BottomButton.BottomButton({ text: 'JOIN THE WAITLIST', theme: BottomButton.bluetheme })}
-          </BaseComponents.WaitCardButtonPosition>
-        </>
-      );
+      content = <StoreInfoCard>{StoreInfo(this.props.storeRecord)}</StoreInfoCard>;
     }
     return (
       <Card>
-        <StoreInfoCard>
-          {StoreInfo(this.props.storeRecord)}
-        </StoreInfoCard>
         {content}
+        <CarouselApp carouselItems={items} />
       </Card>
     );
   }
@@ -58,5 +49,5 @@ export const Card = styled.View`
 export const StoreInfoCard = styled.View`
   height: 100px;
   margin-top: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 `;

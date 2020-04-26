@@ -50,7 +50,11 @@ export default class Map extends React.Component {
       store: {
         focused: false,
       },
+      waitlisted: false,
+      userRecord: {},
+      storeRecord: {},
     };
+    this.setWaitlisted = this.setWaitlisted.bind(this);
   }
 
   async componentWillMount() {
@@ -62,6 +66,14 @@ export default class Map extends React.Component {
         longitudeDelta: region.longitudeDelta,
       },
       stores: await this.getClosestStores(regionLatLon.longitude, regionLatLon.latitude),
+    });
+  }
+
+  async setWaitlisted(status, storeRecord, userRecord) {
+    await this.setState({
+      waitlisted: status,
+      storeRecord,
+      userRecord,
     });
   }
 
@@ -139,12 +151,13 @@ export default class Map extends React.Component {
           }
         </MapView>
         {/* <WaitlistCard /> */}
-        {(this.waitlisted)
-          ? <WaitlistCard />
+        {(this.state.waitlisted)
+          ? <WaitlistCard navigation={this.props.navigation} userRecord={this.state.userRecord} storeRecord={this.state.storeRecord} />
           : (
             <BottomCardContainer
               style={bottomStyles.container}
               storeRecord={(this.state.focusStore != null) ? this.state.focusStore : 'carousel'}
+              waitlistSetter={this.setWaitlisted}
             />
           )}
       </View>

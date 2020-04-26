@@ -69,7 +69,7 @@ export default class CarouselApp extends React.Component {
       >
         <CarouselView>
           <Carousel
-            layout="default"
+            layout="stack"
             ref={(ref) => this.carousel = ref}
             data={this.props.carouselItems}
             sliderWidth={360}
