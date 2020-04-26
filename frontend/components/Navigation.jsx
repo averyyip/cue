@@ -9,9 +9,9 @@ const Stack = createStackNavigator();
 export default function AppContainer() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Loading" headerMode="none">
+      <Stack.Navigator initialRouteName="Confirmation" headerMode="none">
         <Stack.Screen name="Map" component={MapScreen} />
-        <Stack.Screen name="Information" component={ConfirmationScreen} />
+        <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
         {/* <Stack.Screen name="Loading" component={LoadingScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
