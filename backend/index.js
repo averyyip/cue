@@ -21,6 +21,11 @@ app.post('/joinWaitlist', (req, res) => {
   controllers.storesController.joinWaitlist(req, res);
 });
 
+app.post('/leaveWaitlist', (req, res) => {
+  console.log('Processing joinWaitlist');
+  controllers.storesController.leaveWaitlist(req, res);
+});
+
 app.post('/rateStore', (req, res) => {
   console.log('Processing rateStore');
   controllers.storesController.rateStore(req, res);
