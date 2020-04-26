@@ -10,6 +10,7 @@ import * as BottomButton from '@components/BottomButton';
 import * as BaseComponents from '@components/BaseComponents';
 import styled from 'styled-components/native';
 
+// tweak variables for demo
 const lessthanfifteen = true;
 const withinradius = true;
 
