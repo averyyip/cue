@@ -1,11 +1,8 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
-import { StyleSheet, View, Text } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
 import { AppContainer } from './components/Navigation';
-import * as BottomButton from './components/BottomButton';
-
 
 export default class App extends React.Component {
   constructor() {
