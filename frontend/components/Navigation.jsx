@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 export function AppContainer() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Map" headerMode="none">
+      <Stack.Navigator initialRouteName="Donation" headerMode="none">
         <Stack.Screen name="Map" component={MapScreen} />
         <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
         <Stack.Screen name="Countdown" component={Countdown} />

@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import {
+  StyleSheet, View, Image, Linking,
+} from 'react-native';
 import Stars from 'react-native-stars';
 import styled from 'styled-components/native';
 import * as BaseComponents from '../components/BaseComponents';
@@ -25,7 +27,7 @@ export class DonationScreen extends React.Component {
           source={require('../assets/images/feedingamerica.png')}
         />
         <ButtonView>
-          {BottomButton.BottomButton({ text: 'Donate what you can now.', theme: BottomButton.greentheme })}
+          {BottomButton.BottomButton({ text: 'Donate what you can now.', theme: BottomButton.greentheme, onPress: () => Linking.openURL('https://www.feedingamerica.org/') })}
         </ButtonView>
       </Block>
     );
