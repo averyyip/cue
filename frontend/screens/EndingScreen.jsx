@@ -4,6 +4,7 @@ import Stars from 'react-native-stars';
 import styled from 'styled-components/native';
 import * as BaseComponents from '../components/BaseComponents';
 import { Colors } from '../assets/Colors';
+import BottomButton from '../components/BottomButton';
 
 const screenTypes = {
   ratingScreen: {
@@ -44,9 +45,22 @@ export function EndingScreen(screenName) {
   );
 
   const donationBlock = (
-    <BlockText>
-      Food banks are struggling to keep up with demand.
-    </BlockText>
+    <Block>
+      <BlockText>
+        Food banks are struggling to keep up with demand.
+      </BlockText>
+      <Image
+        style={{
+          width: 150,
+          height: 150,
+          resizeMode: 'contain',
+        }}
+        source={require('../assets/images/feedingamerica.png')}
+      />
+      <View style={{ width: '100%', margin: 0 }}>
+        {BottomButton.BottomButton({ text: 'Donate what you can now.', theme: BottomButton.greentheme })}
+      </View>
+    </Block>
   );
 
   return (
