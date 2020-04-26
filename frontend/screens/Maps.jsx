@@ -5,6 +5,8 @@ import StoreMarker from '@components/StoreMarker';
 import axios from 'axios';
 import BottomCardContainer from '@components/BottomCardContainer';
 import { getLocation } from '@utils/location';
+import WaitlistCard from '@components/WaitlistCard';
+
 /**
 const Store = new mongoose.Schema({
   id: String,
@@ -136,10 +138,15 @@ export default class Map extends React.Component {
             ))
           }
         </MapView>
-        <BottomCardContainer
-          style={bottomStyles.container}
-          storeRecord={(this.state.focusStore != null) ? this.state.focusStore : 'carousel'}
-        />
+        {/* <WaitlistCard /> */}
+        {(this.waitlisted)
+          ? <WaitlistCard />
+          : (
+            <BottomCardContainer
+              style={bottomStyles.container}
+              storeRecord={(this.state.focusStore != null) ? this.state.focusStore : 'carousel'}
+            />
+          )}
       </View>
     );
   }
