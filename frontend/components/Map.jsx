@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import StoreMarker from '@components/StoreMarker';
+import axios from 'axios';
 // import Main from './backend/controllers/index';
 
 /**
@@ -27,8 +28,8 @@ const Store = new mongoose.Schema({
 const region = {
   latitude: 37.321996988,
   longitude: -122.0325472123455,
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421
+  latitudeDelta: 0.0222,
+  longitudeDelta: 0.0221
 }
 
 const deltas = {
@@ -44,47 +45,63 @@ export default class Map extends React.Component {
     this.state = {
       location: null,
       region: {region},
-      stores: null,
+      stores: [],
       store: {
         focused:false,
       },
     }
+    console.log("bleeeeeeehehh")
+    console.log(this.state)
   }
 
-  async componentWillMount() {
+    async componentWillMount() {
     //   this.setState ({
     //     stores: await this.getClosestStores()
     //   })
-    this.setState(
-        {stores: 
-            [{id: 1,
-                name: "String",
-                isLocalStore: true,
-                healthRatings: [{
-                userUUID: 1,
-                rating: 2,
-                }],
-                waitlist: [
-                { userUUID: 1 },
-                ],
-                location: {
-                lon: 37.321996988,
-                lat: -122.0325472123455,
-                address: "123 he", }
-            }]}
-        )
-        }
+    await this.setState({stores: this.getClosestStores(-122.0325472123455, 37.321996988)
+            // [{id: 1,
+            //     name: "store1",
+            //     isLocalStore: true,
+            //     healthRatings: [{
+            //         userUUID: 1,
+            //         rating: 2,
+            //     }],
+            //     waitlist: [
+            //     { userUUID: 1 },
+            //     ],
+            //     location: {
+            //     lat: 37.321996988,
+            //     lon: -122.0325472123455,
+            //     address: "123 he", }
+            // }, {id: 1,
+            //     name: "store",
+            //     isLocalStore: true,
+            //     healthRatings: [{
+            //         userUUID: 1,
+            //         rating: 2,
+            //     }],
+            //     waitlist: [
+            //     { userUUID: 1 },
+            //     ],
+            //     location: {
+            //     lat: 37.421996988,
+            //     lon: -122.0325472123455,
+            //     address: "123 he", }
+            // }]}
+        })
 
-  async getClosestStores() {
+    }
+
+  async getClosestStores(longitude, latitude) {
     try {
       const response = await axios.get('https://hacknow-bp.uc.r.appspot.com/closestStores', {
           params: {
-              lon: -122.0325472123455,
-              lat: 37.321996988
+              lon: longitude,
+              lat: latitude
           }
       });
-      console.log(response);
-      return response.body;
+      console.log(response.data)
+      return response.data;
     } catch (error) {
       console.error(error);
     }}
@@ -115,33 +132,34 @@ export default class Map extends React.Component {
     // if (this.state.location) {
     //   coords = this.state.location.coords;
     // }
-    
+    console.log("bleeeeeeehehh")
+    console.log(this.state.stores)
     return (
       <View style={styles.container}>
         <MapView
           style={styles.container}
           provider="google"
-          region={this.state.region}
-          onRegionChangeComplete={this.onRegionChangeComplete}
-           ref = {(mapView) => { _map = mapView;}}
+          region={region}
+        //   onRegionChangeComplete={this.onRegionChangeComplete}
+            ref = {(mapView) => { _map = mapView;}}
         >
-          {/* {
+          {
             this.state.stores.map(store => (
               <Marker
                 key='hello'
                 coordinate={{
-                  latitude: store.location.lat,
-                  longitude: store.location.lon,
+                  latitude: store.location.latitude,
+                  longitude: store.location.longitude,
                 }}
                 onPress={() => this.changeCurrentStore(store)}>
                 <StoreMarker
-                  storeName={store.name}
+                   storeName={store.name}
                   focused={!this.state.store.focused}
-                  type={store.isLocal}
+                   type={this.state.stores[0].isLocal}
                 />
               </Marker>
             ))
-          } */}
+          }
         </MapView>
       </View>
     )

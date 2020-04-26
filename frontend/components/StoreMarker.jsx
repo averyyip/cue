@@ -17,7 +17,7 @@ function StoreMarker({ storeName, focused }) {
           source={require('../assets/images/unfocus.png')}
         />
       )}
-      {/* <MarkerStoreName focused={focused}>{storeName}</MarkerStoreName> */}
+      <MarkerStoreName focused={focused}>{storeName}</MarkerStoreName>
     </MarkerContainer>
   );
 }
@@ -30,11 +30,8 @@ export const MarkerContainer = styled.View`
   align-items: center
 `;
 
-// export const MarkerStoreName = styled.Text`
-//   font-family: ${props =>
-//     props.focused ? 'poppins-semibold' : 'poppins-medium'};
-//   font-size: ${props => (props.focused ? '16px' : '14px')};
-//   line-height: ${props => (props.focused ? '24px' : '20px')};
-//   text-align: center
-//   color: ${Colors.activeText};
-// `;
+export const MarkerStoreName = styled.Text`
+  font-size: ${props => (props.focused ? '16px' : '14px')};
+  line-height: ${props => (props.focused ? '24px' : '20px')};
+  text-align: center
+`;

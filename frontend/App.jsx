@@ -36,13 +36,9 @@ export default class App extends React.Component {
       return null;
     }
     return (
-<<<<<<< HEAD
       <View style={styles.container}>
         <HomeMap/>
       </View>
-=======
-      <View />
->>>>>>> fddeca6d935269561e5effa7b0c4f940d8350f23
     );
   }
 }

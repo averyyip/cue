@@ -43,11 +43,11 @@ export default class HomeMap extends React.Component {
       return null;
     }
     return (
-      <View style={styles.container}>
-        {<Map/>}
-        {<CarouselApp
+      <View>
+        <Map/>
+        <CarouselApp
             carouselItems={items}
-        />}
+        />
       </View>
     );
   }
