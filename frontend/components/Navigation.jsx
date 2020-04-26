@@ -6,7 +6,7 @@ import { ConfirmationScreen } from '../screens/Confirmation';
 
 const Stack = createStackNavigator();
 
-export default function AppContainer() {
+export function AppContainer() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Confirmation" headerMode="none">
