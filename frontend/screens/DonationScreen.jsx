@@ -7,10 +7,10 @@ import { Colors } from '../assets/Colors';
 import BottomButton from '../components/BottomButton';
 
 export class DonationScreen extends React.Component {
-  // this.props.navigation.push('EndingScreen', {screenName, store})
+  this.props.navigation.push('EndingScreen', {screenName, store})
   // props passed by react navigation from the previous screen
   render() {
-    // const { screenName, store } = this.props.route;
+    const { screenName, store } = this.props.route;
     const donationBlock = (
       <Block>
         <BlockText>
