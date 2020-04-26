@@ -7,8 +7,11 @@ import * as BaseComponents from './BaseComponents';
 
 export default function StoreInfo(storeRecord) {
   const norating = (
-    <BaseComponents.BodyText>
-      No Rating
+    <BaseComponents.BodyText style={{
+      marginLeft: 10, color: '#E76A42',
+    }}
+    >
+      No ratings yet
     </BaseComponents.BodyText>
   );
   return (
@@ -20,16 +23,17 @@ export default function StoreInfo(storeRecord) {
           display={storeRecord.rating}
           spacing={8}
           count={5}
-          starSize={30}
+          starSize={25}
           fullStar={require('@assets/images/starFilled.png')}
           emptyStar={require('@assets/images/starEmpty.png')}
           halfStar={require('@assets/images/starHalf.png')}
         />
         <Image
           style={{
-            width: 10,
-            height: 10,
+            width: 15,
+            height: 15,
             resizeMode: 'contain',
+            marginLeft: 10,
           }}
           source={require('../assets/images/heatlh-rating.png')}
         />
@@ -42,9 +46,10 @@ export default function StoreInfo(storeRecord) {
 const Container = styled.View`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 75px;
+  width: 340px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const BoldHeader = styled(BaseComponents.LargeHeader)`
@@ -54,10 +59,12 @@ const BoldHeader = styled(BaseComponents.LargeHeader)`
 const AddressText = styled(BaseComponents.AddressText)`
   text-align:left;
   color: ${Colors.textGray};
+  margin-top: 5px;
 `;
 
 const RatingContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 10px;
 `;
