@@ -7,7 +7,7 @@ async function closestStores(req, res) {
   const stores = await main.stores.getClosestStores(lon, lat);
   const promises = stores.map(async (store) => {
     let storeInfo = await db.getStore(store.id);
-    if (storeInfo == null) {
+    if (storeInfo === null) {
       await db.addStore(store);
     }
     storeInfo = await db.getStore(store.id);
@@ -30,7 +30,7 @@ async function joinWaitlist(req, res) {
 
 async function rateStore(req, res) {
   const { storeID, userUUID, rating } = req.query;
-  const ok = await main.stores.joinWaitlist(storeID, userUUID, rating);
+  const ok = await main.stores.rateStore(storeID, userUUID, rating);
   res.json(ok);
 }
 

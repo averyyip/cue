@@ -35,7 +35,8 @@ function addStore(store) {
   });
 }
 
-function getStore(id) {
+async function getStore(id) {
+  console.log(await StoreModel.findOne({ id }));
   return StoreModel.findOne({ id });
 }
 
