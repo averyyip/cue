@@ -8,6 +8,10 @@ export const TextRegular = styled.Text`
 
 // store names, bold informational text
 export const LargeHeader = styled(TextBold)`
+  font-size: 24px;
+`;
+
+export const Time = styled(TextBold)`
   font-size: 20px;
 `;
 
@@ -36,6 +40,13 @@ export const AddressText = styled(TextRegular)`
   font-size: 14px;
 `;
 
+export const WaitCardButtonPosition = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 130px;
+`;
 // full width and height
 export const BaseScreen = styled.View`
   width: 100%;
