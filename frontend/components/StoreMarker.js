@@ -17,7 +17,7 @@ function StoreMarker({ storeName, focused }) {
           source={require('../assets/images/unfocus.png')}
         />
       )}
-      <MarkerStoreName focused={focused}>{storeName}</MarkerStoreName>
+      {/* <MarkerStoreName focused={focused}>{storeName}</MarkerStoreName> */}
     </MarkerContainer>
   );
 }

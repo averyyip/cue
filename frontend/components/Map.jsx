@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import StoreMarker from '@components/StoreMarker';
+// import Main from './backend/controllers/index';
 
 /**
 const Store = new mongoose.Schema({
@@ -50,11 +51,29 @@ export default class Map extends React.Component {
     }
   }
 
-  async componentDidMount() {
-      this.setState ({
-        stores: await this.getClosestStores()
-      })
-  }
+  async componentWillMount() {
+    //   this.setState ({
+    //     stores: await this.getClosestStores()
+    //   })
+    this.setState(
+        {stores: 
+            [{id: 1,
+                name: "String",
+                isLocalStore: true,
+                healthRatings: [{
+                userUUID: 1,
+                rating: 2,
+                }],
+                waitlist: [
+                { userUUID: 1 },
+                ],
+                location: {
+                lon: 37.321996988,
+                lat: -122.0325472123455,
+                address: "123 he", }
+            }]}
+        )
+        }
 
   async getClosestStores() {
     try {
@@ -104,9 +123,9 @@ export default class Map extends React.Component {
           provider="google"
           region={this.state.region}
           onRegionChangeComplete={this.onRegionChangeComplete}
-          ref = {(mapView) => { _map = mapView;}}
+           ref = {(mapView) => { _map = mapView;}}
         >
-          {
+          {/* {
             this.state.stores.map(store => (
               <Marker
                 key='hello'
@@ -122,7 +141,7 @@ export default class Map extends React.Component {
                 />
               </Marker>
             ))
-          }
+          } */}
         </MapView>
       </View>
     )

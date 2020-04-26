@@ -44,10 +44,10 @@ export default class HomeMap extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <Map/>
-        {/* {<CarouselApp
+        {<Map/>}
+        {<CarouselApp
             carouselItems={items}
-        />} */}
+        />}
       </View>
     );
   }
