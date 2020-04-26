@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.10"
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.10",
+    "yelp-fusion": "^3.0.0"
   }
 }
