@@ -54,7 +54,7 @@ const Container = styled.View`
   width: 340px;
   margin-left: 30px;
   margin-right: auto;
-  padding-top: 30px;
+  padding-top: 15px;
 `;
 
 
