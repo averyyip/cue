@@ -37,17 +37,7 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      <View style={styles.container}>
-        <AppContainer />
-      </View>
+      <AppContainer />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-});

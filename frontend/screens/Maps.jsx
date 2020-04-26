@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 export class MapScreen extends React.Component {
   render() {
     return (
-      <Text>hi</Text>
+      <Text style={{ fontSize: 200 }}>hi</Text>
     );
   }
 }
