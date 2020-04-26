@@ -63,11 +63,8 @@ async function joinWaitlist(storeID, userUUID) {
 }
 
 async function leaveWaitlist(storeID, userUUID) {
-  console.log(storeID, userUUID);
   const store = await getStore(storeID);
-  console.log(store.waitlist);
   store.waitlist = store.waitlist.filter((user) => user.userUUID !== userUUID);
-  // console.log(store.waitlist);
   store.save();
   return true;
 }
