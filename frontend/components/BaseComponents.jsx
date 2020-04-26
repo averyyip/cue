@@ -71,10 +71,10 @@ export const ButtonPosition = styled.View`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin-top: 35px;
+  margin-top: 15px;
 `;
 
-export const TimeImage = styled.Image`
+export const WaitCardImage = styled.Image`
   margin-top: 15px;
   margin-left: -21px;
 `;

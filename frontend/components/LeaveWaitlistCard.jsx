@@ -10,12 +10,12 @@ export function LeaveWaitlistCard(store) {
       <BaseComponents.StoreTitle>{store}</BaseComponents.StoreTitle>
       <View style={{ flexDirection: 'row' }}>
         <BaseComponents.CardText>You will be notified 15 minutes before your time slot</BaseComponents.CardText>
-        <BaseComponents.TimeImage source={require('@assets/images/time.png')} style={{
+        <BaseComponents.WaitCardImage source={require('@assets/images/time.png')} style={{
           width: 154,
           height: 114,
           resizeMode: 'contain',
         }}
-        ></BaseComponents.TimeImage>
+        ></BaseComponents.WaitCardImage>
       </View >
       <BaseComponents.ButtonPosition>
         {BottomButton.BottomButton({ text: "Leave the Waitlist", theme: BottomButton.whitetheme })}
