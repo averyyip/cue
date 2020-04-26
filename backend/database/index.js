@@ -41,7 +41,7 @@ function getStore(id) {
 
 async function rateStore(storeID, userUUID, rating) {
   const store = await getStore(storeID);
-  const idx = _.findIndex(store.healthRatings, (healthRating) => healthRating.userUUID == userUUID);
+  const idx = _.findIndex(store.healthRatings, (healthRating) => healthRating.userUUID === userUUID);
   if (idx === -1) {
     store.healthRatings.push({ userUUID, rating });
   } else {

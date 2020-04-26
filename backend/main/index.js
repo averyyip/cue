@@ -1,7 +1,7 @@
-const yelp = require('./yelp');
+const stores = require('./stores');
 const login = require('./login');
 
 module.exports = {
-  yelp,
+  stores,
   login,
 };
