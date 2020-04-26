@@ -13,7 +13,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    await this.setDefaultFont();
+    // await this.setDefaultFont();
     await this.setState({
       isLoaded: true,
     });
