@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import {
+  StyleSheet, View, Image, TouchableOpacity,
+} from 'react-native';
 import Stars from 'react-native-stars';
 import styled from 'styled-components/native';
 import LongBottomCardContainer from '@components/LongBottomCardContainer';
@@ -13,9 +15,11 @@ export class Countdown extends React.Component {
     return (
       <Background>
         <TimerBox>
-          <TimerText>
-            Your spot is almost ready! be ready to show this screen to the store attendant.
-          </TimerText>
+          <TouchableOpacity style={{ marginLeft: 70, width: '80%' }} onPress={() => this.props.navigation.push('Rating', { ...this.props.route.params })} activeOpacity={1}>
+            <TimerText>
+              Your spot is almost ready! be ready to show this screen to the store attendant.
+            </TimerText>
+          </TouchableOpacity>
           <Timer />
         </TimerBox>
         <LongBottomCardContainer storeRecord={storeRecord} />

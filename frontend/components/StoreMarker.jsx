@@ -33,17 +33,17 @@ export const MarkerContainer = styled.View`
 `;
 
 export const MarkerStoreContainer = styled.View`
-  background-color: ${props => (props.focused ? Colors.Yellow : Colors.Yellow)};
+  background-color: ${(props) => (props.focused ? Colors.Red : Colors.Red)};
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 5px;
-;`
+;`;
 
 export const MarkerStoreName = styled.Text`
-  font-size: ${props => (props.focused ? '12px' : '12px')};
-  line-height: ${props => (props.focused ? '24px' : '20px')};
+  font-size: ${(props) => (props.focused ? '12px' : '12px')};
+  line-height: ${(props) => (props.focused ? '24px' : '20px')};
   text-align: center;
   color: ${Colors.White};
 

@@ -25,7 +25,10 @@ export class RatingScreen extends React.Component {
             <Stars
               half
               default={0}
-              update={(val) => { stars = val; }}
+              update={(val) => {
+                stars = val;
+                this.props.navigation.push('Donation', { ...this.props.route });
+              }}
               spacing={15}
               starSize={40}
               count={5}
