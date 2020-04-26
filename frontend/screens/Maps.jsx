@@ -43,7 +43,7 @@ export default class Map extends React.Component {
     super(props);
     this.state = {
       location: null,
-      region: { region },
+      region,
       stores: [],
       store: {
         focused: false,
