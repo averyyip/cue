@@ -85,7 +85,8 @@ export default class CarouselApp extends React.Component {
 }
 
 const CarouselView = styled.View`
-  background-color: #fff;
+  background-color: #F2F2F2;
+  marginTop: 30;
   display: flex;
   flex-direction: row;
   justify-content: center;

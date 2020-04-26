@@ -39,7 +39,8 @@ export default class BottomCard extends React.Component {
 export const Card = styled.View`
   width: 100%;
   height: 50%;
-  background-color: #ffffff;
+  background-color: #F2F2F2
+;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,5 +50,5 @@ export const Card = styled.View`
 export const StoreInfoCard = styled.View`
   height: 100px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 `;
