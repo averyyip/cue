@@ -47,9 +47,20 @@ async function rateStore(storeID, userUUID, rating) {
   } else {
     store.healthRatings[idx].rating = rating;
   }
-  StoreModel.updateOne({ id: storeID }, { $set: { healthRatings: store.healthRatings } });
+  store.save();
+  return true;
 }
 
+async function joinWaitlist(storeID, userUUID) {
+  const store = await getStore('PQo2zyINjoHjWas0XWn5_Q');
+  const idx = _.findIndex(store.waitlist, (user) => user.userUUID === userUUID);
+  if (idx === -1) {
+    store.waitlist.push({ userUUID });
+    store.save();
+    return true;
+  }
+  return false;
+}
 
 module.exports = {
   createUser,
@@ -57,4 +68,5 @@ module.exports = {
   addStore,
   getStore,
   rateStore,
+  joinWaitlist,
 };

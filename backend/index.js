@@ -10,7 +10,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/closestStores', (req, res) => {
-  controllers.yelpController.closestStores(req, res);
+  controllers.storesController.closestStores(req, res);
+});
+
+app.post('/joinWaitlist', (req, res) => {
+  console.log('Processing joinWaitlist');
+  controllers.storesController.joinWaitlist(req, res);
 });
 
 app.get('/login', (req, res) => {

@@ -1,5 +1,6 @@
 const yelp = require('yelp-fusion');
 const env = require('../env');
+const db = require('../database/index');
 
 const client = yelp.client(env.yelp_api_key);
 
@@ -33,6 +34,11 @@ async function getClosestStores(lon, lat) {
   }
 }
 
+async function joinWaitlist(storeID, userUUID) {
+  return db.joinWaitlist(storeID, userUUID);
+}
+
 module.exports = {
   getClosestStores,
+  joinWaitlist,
 };
