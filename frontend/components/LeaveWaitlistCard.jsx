@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import * as BottomButton from '@components/BottomButton'
 import * as BaseComponents from '@components/BaseComponents';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 
 export function LeaveWaitlistCard(store) {
   return (

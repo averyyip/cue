@@ -1,12 +1,6 @@
 import React from 'react';
-import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View, Text } from 'react-native';
-import { Fonts } from './assets/fonts/Fonts';
-import { ClosertoStoreCard } from './components/ClosertoStoreCard';
-import { LeaveWaitlistCard } from './components/LeaveWaitlistCard';
-import { CheckInCard } from './components/CheckInCard';
-
 
 export default class App extends React.Component {
   constructor() {
@@ -41,7 +35,7 @@ export default class App extends React.Component {
       <View />
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   container: {

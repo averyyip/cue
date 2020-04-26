@@ -3,8 +3,7 @@ import styled from 'styled-components/native';
 import * as BottomButton from '@components/BottomButton'
 import { Button } from 'react-native-elements';
 import * as BaseComponents from '@components/BaseComponents';
-import * as LeaveWaitlistCard from '@components/LeaveWaitlistCard'
-import { Image, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 function Separator() {
     return <View style={styles.separator} />;
