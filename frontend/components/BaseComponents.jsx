@@ -75,7 +75,7 @@ export const WaitCardButtonPosition = styled.View`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 90px;
 `;
 
 export const WaitCardImage = styled.Image`

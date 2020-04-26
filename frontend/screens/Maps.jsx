@@ -33,8 +33,8 @@ const region = {
 };
 
 const deltas = {
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421,
+  latitudeDelta: 0.0222,
+  longitudeDelta: 0.0221,
 };
 
 
@@ -85,11 +85,14 @@ export default class Map extends React.Component {
       focusStore: store,
     });
     // animate to a new region of the map
-    const region = {
-      latitude: store.location.latitude,
-      longitute: store.location.longitude,
-      ...deltas,
-    };
+    // this.setState({
+    //   region: {
+    //     latitude: store.location.latitude,
+    //     longitute: store.location.longitude,
+    //     ...deltas,
+    //   }
+    // });
+
     // this.setState(
     //     {store,}, async () => {
     //     await this._map.animateToRegion(region, 1000);
