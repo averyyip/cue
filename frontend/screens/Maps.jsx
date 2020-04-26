@@ -5,7 +5,7 @@ import StoreMarker from '@components/StoreMarker';
 import axios from 'axios';
 import BottomCardContainer from '@components/BottomCardContainer';
 import { getLocation } from '@utils/location';
-import {LeaveWaitlistCard} from '@components/LeaveWaitlistCard';
+import { LeaveWaitlistCard } from '@components/LeaveWaitlistCard';
 /**
 const Store = new mongoose.Schema({
   id: String,
@@ -111,7 +111,6 @@ export default class Map extends React.Component {
   };
 
   render() {
-    console.log(this.state.region);
     return (
       <View style={styles.container}>
         <MapView
