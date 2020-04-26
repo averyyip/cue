@@ -3,6 +3,8 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View, Text } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
+import * as BottomButton from './components/BottomButton';
+import { LeaveWaitlistCard } from './components/LeaveWaitlistCard';
 
 
 export default class App extends React.Component {
@@ -35,8 +37,8 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      <View style={styles.container}>
-        <Text>SAMPLE</Text>
+      <View style={styles}>
+        {LeaveWaitlistCard("Costco Wholesale")}
       </View>
     );
   }
