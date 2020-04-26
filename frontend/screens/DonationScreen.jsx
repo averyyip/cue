@@ -29,6 +29,9 @@ export class DonationScreen extends React.Component {
         <ButtonView>
           {BottomButton.BottomButton({ text: 'Donate what you can now.', theme: BottomButton.greentheme, onPress: () => Linking.openURL('https://www.feedingamerica.org/') })}
         </ButtonView>
+        <ButtonView>
+          {BottomButton.BottomButton({ text: 'Return Home', theme: BottomButton.graytheme, onPress: () => this.props.navigation.navigate('Map') })}
+        </ButtonView>
       </Block>
     );
 
