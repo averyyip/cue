@@ -3,6 +3,8 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
+import * as BottomButton from './components/BottomButton';
+import { LeaveWaitlistCard } from './components/LeaveWaitlistCard';
 
 
 export default class App extends React.Component {
