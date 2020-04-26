@@ -1,9 +1,9 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
-import { StyleSheet, View } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
 import Map from '@screens/Map';
+import { AppContainer } from './components/Navigation';
 
 export default class App extends React.Component {
   constructor() {
@@ -51,3 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+      <AppContainer />
+    );
+  }
+}

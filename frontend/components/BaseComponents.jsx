@@ -47,3 +47,8 @@ export const WaitCardButtonPosition = styled.View`
   width: 100%;
   margin-top: 130px;
 `;
+// full width and height
+export const BaseScreen = styled.View`
+  width: 100%;
+  height: 100%;
+`;
