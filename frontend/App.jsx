@@ -19,11 +19,11 @@ export default class App extends React.Component {
   }
 
   setDefaultFont = async () => {
-    await Font.loadAsync(Fonts);
+    // await Font.loadAsync(Fonts);
     const customTextProps = {
       style: { fontFamily: 'sf-pro-display-regular' },
     };
-    await setCustomText(customTextProps);
+    setCustomText(customTextProps);
   };
 
   render() {
