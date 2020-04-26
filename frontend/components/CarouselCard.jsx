@@ -15,7 +15,7 @@ function getCardType(name) {
     },
 
     distance: {
-      color: Colors.Purple,
+      color: Colors.DarkPurple,
       text: Colors.White,
       title: 'Maintain a safe distance',
       imageUri: require('@assets/images/social-distance.png'),
@@ -23,7 +23,7 @@ function getCardType(name) {
     },
 
     neighbors: {
-      color: Colors.Purple,
+      color: Colors.DarkPurple,
       text: Colors.White,
       title: 'Check in on your neighbors',
       imageUri: require('@assets/images/neighbors.png'),
@@ -31,7 +31,7 @@ function getCardType(name) {
     },
 
     shoppinglist: {
-      color: Colors.Purple,
+      color: Colors.DarkPurple,
       text: Colors.White,
       title: 'Have a shopping list ready',
       imageUri: require('@assets/images/list.png'),
@@ -39,11 +39,11 @@ function getCardType(name) {
     },
 
     mask: {
-      color: Colors.Purple,
+      color: Colors.DarkPurple,
       text: Colors.White,
       title: 'Bring a face covering',
       imageUri: require('@assets/images/mask.png'),
-      body: 'In many counties, face coverings are required in all essential businesses. Bring a mask or homemade face covering to protect yourself and others!',
+      body: 'In many counties, face coverings are required in all essential businesses. Bring a mask to protect yourself and others!',
     },
 
     berkeleybowl: {

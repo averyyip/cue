@@ -5,6 +5,7 @@ import StoreInfo from '@components/StoreInfo';
 import { StyleSheet, Text, View } from 'react-native';
 import * as BottomButton from '@components/BottomButton';
 import * as BaseComponents from '@components/BaseComponents';
+import styled from 'styled-components/native';
 
 
 export default class BottomCard extends React.Component {
@@ -14,9 +15,10 @@ export default class BottomCard extends React.Component {
 
   render() {
     const items = [
-      CarouselCard('smallbusiness'),
-      CarouselCard('berkeleybowl'),
-      CarouselCard('wholefoods'),
+      CarouselCard('mask'),
+      CarouselCard('distance'),
+      CarouselCard('shoppinglist'),
+      CarouselCard('neighbors'),
     ];
 
     let content;
@@ -33,15 +35,28 @@ export default class BottomCard extends React.Component {
       );
     }
     return (
-      <View style={styles.container}>
+      <Card>
+        <StoreInfoCard>
+          {StoreInfo(this.props.storeRecord)}
+        </StoreInfoCard>
         {content}
-      </View>
+      </Card>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // width: '100%'
-  },
-});
+
+export const Card = styled.View`
+  width: 100%;
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StoreInfoCard = styled.View`
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+`;
