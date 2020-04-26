@@ -3,7 +3,6 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { Fonts } from './assets/fonts/Fonts';
 import { AppContainer } from './components/Navigation';
-import Map from './screens/Maps';
 export default class App extends React.Component {
   constructor() {
     super();
@@ -34,8 +33,7 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      // <AppContainer />
-      <Map/>
+      <AppContainer />
     );
   }
 }
