@@ -5,7 +5,7 @@ const db = require('../database/index');
 async function closestStores(req, res) {
   const { lon, lat } = req.query;
   const stores = await main.stores.getClosestStores(lon, lat);
-  const promises = stores.map(async (store, index) => {
+  const promises = stores.map(async (store) => {
     let storeInfo = await db.getStore(store.id);
     if (storeInfo == null) {
       await db.addStore(store);
@@ -28,7 +28,14 @@ async function joinWaitlist(req, res) {
   res.json(ok);
 }
 
+async function rateStore(req, res) {
+  const { storeID, userUUID, rating } = req.query;
+  const ok = await main.stores.joinWaitlist(storeID, userUUID, rating);
+  res.json(ok);
+}
+
 module.exports = {
   closestStores,
   joinWaitlist,
+  rateStore,
 };

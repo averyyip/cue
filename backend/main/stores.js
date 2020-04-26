@@ -38,7 +38,12 @@ async function joinWaitlist(storeID, userUUID) {
   return db.joinWaitlist(storeID, userUUID);
 }
 
+async function rateStore(storeID, userUUID, rating) {
+  return db.rateStore(storeID, userUUID, rating);
+}
+
 module.exports = {
   getClosestStores,
   joinWaitlist,
+  rateStore,
 };
