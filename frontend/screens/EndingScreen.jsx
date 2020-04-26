@@ -52,14 +52,14 @@ export function EndingScreen(screenName) {
       <Image
         style={{
           width: 150,
-          height: 150,
+          height: 90,
           resizeMode: 'contain',
         }}
         source={require('../assets/images/feedingamerica.png')}
       />
-      <View style={{ width: '100%', margin: 0 }}>
+      <ButtonView>
         {BottomButton.BottomButton({ text: 'Donate what you can now.', theme: BottomButton.greentheme })}
-      </View>
+      </ButtonView>
     </Block>
   );
 
@@ -94,9 +94,20 @@ const FullScreen = styled(BaseComponents.BaseScreen)`
   justify-content: space-between;
 `;
 
+const ButtonView = styled.View`
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 100%;
+margin-top: 30px;
+`;
+
+
 const Block = styled.View`
-width: 95%;
-height: 200;
+width: 90%;
+height: 250;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -106,7 +117,7 @@ margin-right: auto;
 `;
 
 const StarBox = styled.View`
-  width: 80%;
+  width: 90%;
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -124,7 +135,7 @@ const HeaderText = styled(BaseComponents.LargeHeader)`
 const BlockText = styled(BaseComponents.LargeHeader)`
   font-size: 18px;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 const HeaderContainer = styled.View`
