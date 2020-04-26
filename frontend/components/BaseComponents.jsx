@@ -49,7 +49,7 @@ export const BottomCard = styled.View`
   background-color: white;
 `;
 
-export const StoreTitle = styled(BaseComponents.TinyHeader)`
+export const StoreTitle = styled(TinyHeader)`
   font-size: 18px;
   font-weight: bold;
   color: #2CB572;
@@ -57,7 +57,7 @@ export const StoreTitle = styled(BaseComponents.TinyHeader)`
   margin-left: 28px;
 `;
 
-export const CardText = styled(BaseComponents.BodyText)`
+export const CardText = styled(BodyText)`
   font-size: 22px;
   font-weight: bold;
   color: black;

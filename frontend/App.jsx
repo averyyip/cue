@@ -16,14 +16,14 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    await this.setDefaultFont();
+    // await this.setDefaultFont();
     await this.setState({
       isLoaded: true,
     });
   }
 
   setDefaultFont = async () => {
-    await Font.loadAsync(Fonts);
+    // await Font.loadAsync(Fonts);
     const customTextProps = {
       style: { fontFamily: 'sf-pro-display-regular' },
     };
@@ -33,7 +33,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {LeaveWaitlistCard("Costco Wholesale")}
+        {LeaveWaitlistCard('Costco Wholesale')}
       </View>
     );
   }
