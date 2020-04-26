@@ -12,10 +12,30 @@ export class Countdown extends React.Component {
     return (
       <Background>
         <TimerBox>
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              resizeMode: 'contain',
+              marginRight: 150,
+              marginBottom: 10,
+            }}
+            source={require('../assets/images/peach.png')}
+          />
           <TimerText>
             Your spot is almost ready! be ready to show this screen to the store attendant.
           </TimerText>
           <Timer />
+          <Image
+            style={{
+              width: 50,
+              height: 50,
+              resizeMode: 'contain',
+              marginLeft: 160,
+              marginTop: 10,
+            }}
+            source={require('../assets/images/potato.png')}
+          />
         </TimerBox>
         <LongBottomCardContainer storeRecord="carousel" />
       </Background>
