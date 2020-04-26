@@ -35,3 +35,9 @@ export const BodyText = styled(TextRegular)`
 export const AddressText = styled(TextRegular)`
   font-size: 14px;
 `;
+
+// full width and height
+export const BaseScreen = styled.View`
+  width: 100%;
+  height: 100%;
+`;
