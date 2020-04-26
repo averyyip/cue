@@ -5,6 +5,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
 import { ClosertoStoreCard } from './components/ClosertoStoreCard';
 import { LeaveWaitlistCard } from './components/LeaveWaitlistCard';
+import { CheckInCard } from './components/CheckInCard';
 
 
 export default class App extends React.Component {
@@ -31,10 +32,13 @@ export default class App extends React.Component {
   };
 
   render() {
+    const { isLoaded } = this.state;
+
+    if (!isLoaded) {
+      return null;
+    }
     return (
-      <View style={styles.container}>
-        {ClosertoStoreCard('Costco Wholesale')}
-      </View>
+      <View />
     );
   }
 }

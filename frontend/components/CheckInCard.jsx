@@ -10,13 +10,14 @@ function Separator() {
     return <View style={styles.separator} />;
 }
 
-export function ClosertoStoreCard(store) {
+export function CheckInCard({ store, time }) {
     return (
         <BaseComponents.WaitBottomCard>
             <BaseComponents.WaitCardStoreTitle>{store}</BaseComponents.WaitCardStoreTitle>
             <View style={{ flexDirection: 'row' }}>
-                <BaseComponents.WaitCardText>Once you are closer to the store, you will be able to check-in!</BaseComponents.WaitCardText>
-                <WaitDestImage source={require('@assets/images/destination.png')} style={{
+                <CheckInCardText>Good news! You have <OrangeText>{time}</OrangeText> until your time slot!
+                </CheckInCardText>
+                <WaitDestImage source={require('@assets/images/celebrate.png')} style={{
                     width: 133,
                     height: 125,
                     resizeMode: 'contain',
@@ -24,7 +25,7 @@ export function ClosertoStoreCard(store) {
                 ></WaitDestImage>
             </View >
             <BaseComponents.WaitCardButtonPosition>
-                {BottomButton.BottomButton({ text: "Check In", theme: BottomButton.graytheme })}
+                {BottomButton.BottomButton({ text: "Check In", theme: BottomButton.bluetheme })}
             </BaseComponents.WaitCardButtonPosition>
             <LeaveWaitlistButton>
                 <Button
@@ -51,9 +52,13 @@ export const WaitDestImage = styled.Image`
   margin-left: -5px;
 `;
 
+export const OrangeText = styled.Text`
+  color: #E76A42;
+`;
+
 export const LeaveWaitlistButton = styled.View`
-display: flex;
-align-self: center;
+  display: flex;
+  align-self: center;
   margin-top: 5px;
   width: 200px;
 `;
@@ -66,3 +71,13 @@ const styles = StyleSheet.create({
         width: 112
     },
 });
+
+export const CheckInCardText = styled(BaseComponents.BodyText)`
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  margin-top: 15px;
+  margin-left: 28px;
+  width: 40%;
+  margin-right: 30px;
+`;

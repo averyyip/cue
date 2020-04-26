@@ -36,7 +36,7 @@ export const AddressText = styled(TextRegular)`
   font-size: 14px;
 `;
 
-export const BottomCard = styled.View`
+export const WaitBottomCard = styled.View`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -49,7 +49,7 @@ export const BottomCard = styled.View`
   background-color: white;
 `;
 
-export const StoreTitle = styled(TinyHeader)`
+export const WaitCardStoreTitle = styled(TinyHeader)`
   font-size: 18px;
   font-weight: bold;
   color: #2CB572;
@@ -57,7 +57,7 @@ export const StoreTitle = styled(TinyHeader)`
   margin-left: 28px;
 `;
 
-export const CardText = styled(BodyText)`
+export const WaitCardText = styled(BodyText)`
   font-size: 22px;
   font-weight: bold;
   color: black;
@@ -66,12 +66,12 @@ export const CardText = styled(BodyText)`
   width: 50%;
 `;
 
-export const ButtonPosition = styled.View`
+export const WaitCardButtonPosition = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
 `;
 
 export const WaitCardImage = styled.Image`

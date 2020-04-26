@@ -6,10 +6,10 @@ import { Image, View } from 'react-native';
 
 export function LeaveWaitlistCard(store) {
   return (
-    <BaseComponents.BottomCard>
-      <BaseComponents.StoreTitle>{store}</BaseComponents.StoreTitle>
+    <BaseComponents.WaitBottomCard>
+      <BaseComponents.WaitCardStoreTitle>{store}</BaseComponents.WaitCardStoreTitle>
       <View style={{ flexDirection: 'row' }}>
-        <BaseComponents.CardText>You will be notified 15 minutes before your time slot</BaseComponents.CardText>
+        <BaseComponents.WaitCardText>You will be notified 15 minutes before your time slot</BaseComponents.WaitCardText>
         <BaseComponents.WaitCardImage source={require('@assets/images/time.png')} style={{
           width: 154,
           height: 114,
@@ -17,9 +17,9 @@ export function LeaveWaitlistCard(store) {
         }}
         ></BaseComponents.WaitCardImage>
       </View >
-      <BaseComponents.ButtonPosition>
+      <BaseComponents.WaitCardButtonPosition>
         {BottomButton.BottomButton({ text: "Leave the Waitlist", theme: BottomButton.whitetheme })}
-      </BaseComponents.ButtonPosition>
-    </BaseComponents.BottomCard >
+      </BaseComponents.WaitCardButtonPosition>
+    </BaseComponents.WaitBottomCard >
   );
 }
