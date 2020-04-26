@@ -1,9 +1,9 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
-import * as BottomButton from './components/BottomButton';
+import { ClosertoStoreCard } from './components/ClosertoStoreCard';
 import { LeaveWaitlistCard } from './components/LeaveWaitlistCard';
 
 
@@ -16,7 +16,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    // await this.setDefaultFont();
+    await this.setDefaultFont();
     await this.setState({
       isLoaded: true,
     });
@@ -27,17 +27,14 @@ export default class App extends React.Component {
     const customTextProps = {
       style: { fontFamily: 'sf-pro-display-regular' },
     };
-    await setCustomText(customTextProps);
+    setCustomText(customTextProps);
   };
 
   render() {
-    const { isLoaded } = this.state;
-
-    if (!isLoaded) {
-      return null;
-    }
     return (
-      <View />
+      <View style={styles.container}>
+        {LeaveWaitlistCard("Costco Wholesale")}
+      </View>
     );
   }
 }

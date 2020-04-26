@@ -35,3 +35,46 @@ export const BodyText = styled(TextRegular)`
 export const AddressText = styled(TextRegular)`
   font-size: 14px;
 `;
+
+export const BottomCard = styled.View`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  height: 35%;
+  position: absolute;
+  bottom:0;
+  left:0;
+  background-color: white;
+`;
+
+export const StoreTitle = styled(BaseComponents.TinyHeader)`
+  font-size: 18px;
+  font-weight: bold;
+  color: #2CB572;
+  margin-top: 18px;
+  margin-left: 28px;
+`;
+
+export const CardText = styled(BaseComponents.BodyText)`
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  margin-top: 15px;
+  margin-left: 28px;
+  width: 50%;
+`;
+
+export const ButtonPosition = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 35px;
+`;
+
+export const TimeImage = styled.Image`
+  margin-top: 15px;
+  margin-left: -21px;
+`;
