@@ -35,21 +35,33 @@ function addStore(store) {
   });
 }
 
-function getStore(id) {
+async function getStore(id) {
+  console.log(await StoreModel.findOne({ id }));
   return StoreModel.findOne({ id });
 }
 
 async function rateStore(storeID, userUUID, rating) {
   const store = await getStore(storeID);
-  const idx = _.findIndex(store.healthRatings, (healthRating) => healthRating.userUUID == userUUID);
+  const idx = _.findIndex(store.healthRatings, (healthRating) => healthRating.userUUID === userUUID);
   if (idx === -1) {
     store.healthRatings.push({ userUUID, rating });
   } else {
     store.healthRatings[idx].rating = rating;
   }
-  StoreModel.updateOne({ id: storeID }, { $set: { healthRatings: store.healthRatings } });
+  store.save();
+  return true;
 }
 
+async function joinWaitlist(storeID, userUUID) {
+  const store = await getStore('PQo2zyINjoHjWas0XWn5_Q');
+  const idx = _.findIndex(store.waitlist, (user) => user.userUUID === userUUID);
+  if (idx === -1) {
+    store.waitlist.push({ userUUID });
+    store.save();
+    return true;
+  }
+  return false;
+}
 
 module.exports = {
   createUser,
@@ -57,4 +69,5 @@ module.exports = {
   addStore,
   getStore,
   rateStore,
+  joinWaitlist,
 };
