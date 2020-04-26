@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Fonts } from './assets/fonts/Fonts';
 import HomeMap from '@screens/HomeMap';
 
@@ -15,7 +15,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-    await this.setDefaultFont();
+    // await this.setDefaultFont();
     await this.setState({
       isLoaded: true,
     });
@@ -26,7 +26,7 @@ export default class App extends React.Component {
     const customTextProps = {
       style: { fontFamily: 'sf-pro-display-regular' },
     };
-    setCustomText(customTextProps);
+    await setCustomText(customTextProps);
   };
 
   render() {
@@ -36,9 +36,13 @@ export default class App extends React.Component {
       return null;
     }
     return (
+<<<<<<< HEAD
       <View style={styles.container}>
         <HomeMap/>
       </View>
+=======
+      <View />
+>>>>>>> fddeca6d935269561e5effa7b0c4f940d8350f23
     );
   }
 }
