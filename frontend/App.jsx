@@ -2,6 +2,7 @@ import React from 'react';
 import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View, Text } from 'react-native';
+import StoreInfo from './components/StoreInfo';
 import { Fonts } from './assets/fonts/Fonts';
 
 
@@ -30,13 +31,18 @@ export default class App extends React.Component {
 
   render() {
     const { isLoaded } = this.state;
+    const storeRecord = ({
+      name: 'Costco Wholesale',
+      address: '2299 Bronze Star Dr, Woodland, CA 95776',
+      rating: 5,
+    });
 
     if (!isLoaded) {
       return null;
     }
     return (
       <View style={styles.container}>
-        <Text>SAMPLE</Text>
+        {StoreInfo(storeRecord)}
       </View>
     );
   }
