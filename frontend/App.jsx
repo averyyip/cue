@@ -3,7 +3,6 @@ import * as Font from 'expo-font';
 import { setCustomText } from 'react-native-global-props';
 import { Fonts } from './assets/fonts/Fonts';
 import { AppContainer } from './components/Navigation';
-
 export default class App extends React.Component {
   constructor() {
     super();
@@ -20,11 +19,11 @@ export default class App extends React.Component {
   }
 
   setDefaultFont = async () => {
-    await Font.loadAsync(Fonts);
+    // await Font.loadAsync(Fonts);
     const customTextProps = {
       style: { fontFamily: 'sf-pro-display-regular' },
     };
-    await setCustomText(customTextProps);
+    setCustomText(customTextProps);
   };
 
   render() {
