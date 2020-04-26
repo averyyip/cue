@@ -7,7 +7,7 @@ import { View } from 'react-native';
 export function LeaveWaitlistCard(store) {
   return (
     <BaseComponents.WaitBottomCard>
-      <BaseComponents.WaitCardStoreTitle>{store}</BaseComponents.WaitCardStoreTitle>
+      <BaseComponents.WaitCardStoreTitle>{store.name}</BaseComponents.WaitCardStoreTitle>
       <View style={{ flexDirection: 'row' }}>
         <BaseComponents.WaitCardText>You will be notified 15 minutes before your time slot</BaseComponents.WaitCardText>
         <BaseComponents.WaitCardImage source={require('@assets/images/time.png')} style={{
