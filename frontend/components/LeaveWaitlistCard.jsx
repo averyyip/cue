@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Font from 'expo-font';
 import * as BottomButton from '@components/BottomButton'
 import * as BaseComponents from '@components/BaseComponents';
 import { View } from 'react-native';

@@ -1,4 +1,6 @@
 import React from 'react';
+import * as Font from 'expo-font';
+import { Fonts } from './assets/fonts/Fonts';
 import { setCustomText } from 'react-native-global-props';
 import { StyleSheet, View, Text } from 'react-native';
 

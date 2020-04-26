@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Font from 'expo-font';
 import styled from 'styled-components/native';
 import * as BottomButton from '@components/BottomButton'
 import { Button } from 'react-native-elements';
